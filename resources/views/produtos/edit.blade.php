@@ -7,12 +7,16 @@
         @csrf
         @method('PUT')
         <div class="mb-3">
-            <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" value="{{ $produto->nome }}" required>
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ $produto->name }}" required>
         </div>
         <div class="mb-3">
-            <label for="preco" class="form-label">Preço</label>
-            <input type="number" class="form-control" id="preco" name="preco" value="{{ $produto->preco }}" required>
+            <label for="description" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="description" name="description" value="{{ $produto->description }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Preço</label>
+            <input type="number" class="form-control" id="price" name="price" value="{{ $produto->price }}" required>
         </div>
         <button type="submit" class="btn btn-primary">Salvar Alterações</button>
     </form>
