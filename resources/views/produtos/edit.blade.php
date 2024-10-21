@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Editar Produto</h1>
+    <h1 class="title">Editar Produto</h1>
     <form action="{{ route('produtos.update', $produto->id) }}" method="post">
         @csrf
         @method('PUT')
@@ -18,7 +18,7 @@
             <label for="price" class="form-label">Preço</label>
             <input type="number" class="form-control" id="price" name="price" value="{{ $produto->price }}" required>
         </div>
-        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        <button type="submit" class="btn btn-success buttonSave">Salvar Alterações</button>
     </form>
 </div>
 @endsection

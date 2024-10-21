@@ -1,52 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-.container{
-    background-color: #141414;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-} 
-.table{
-    background-color: #E0E0E0;
-    border-radius: 10px;
-    border: 1px solid #ADADAD;
-}
-.header{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.title{
+
+*{
     font-family: Inter;
-    font-weight: 800;
-    color: white;
 }
-.buttonCreate{
-    text-decoration: none;
-    background-color: #003D00;
-    border-radius: 10px;
-    border: solid 1px #5CFF5C;
-    color: white;
-    font-size: 20px;
-    padding: 5px;
-    margin: 20px 0px 20px 0px;
-    font-weight: 700;
+.container {
+    padding: 2rem;
 }
-.label{
-font-family: Inter;
-padding: 15px;
+
+.card {
+    border-radius: 0.75rem;
+    padding: 1.5rem;
 }
-.products{
-    font-family: Inter;
-    padding: 15px;
+
+.form-control {
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
 }
-.icon{
-    font-size: 1px;
+
+.btn-green {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-.actions{
-    text-decoration: none;
-    padding: 5px;
+
+.btn-green:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
 }
-.buttons{
-    display: flex;
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.buttonCreate {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.buttonCreate:hover {
+    background-color: #218838; 
+    border-color: #1e7e34;
 }

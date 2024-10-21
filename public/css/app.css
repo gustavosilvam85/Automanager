@@ -1,0 +1,10 @@
+.btn-green {
+    background-color: #28a745; /* Cor verde */
+    border-color: #28a745;
+    color: #fff; /* Texto branco */
+}
+
+.btn-green:hover {
+    background-color: #218838; /* Verde um pouco mais escuro ao passar o mouse */
+    border-color: #1e7e34;
+}
