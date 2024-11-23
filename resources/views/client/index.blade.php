@@ -14,9 +14,8 @@
             @endif
 
             <div class="d-flex justify-content-between align-items-center pt-5">
-                <h2 class="text-light">Clientes</h2> <!-- Isso vai se alinhar à esquerda -->
+                <h2 class="text-light">Clientes</h2>
 
-                <!-- Botão Novo cliente alinhado à direita -->
                 <a href="{{ route('client.create') }}" class="btn btn-dark">
                     Novo cliente
                 </a>
@@ -29,7 +28,6 @@
                         <p><strong>Telefone:</strong> {{ $client->phone1 }}</p>
                         <p><strong>Email:</strong> {{ $client->email }}</p>
 
-                        <!-- Botão de "Ver mais" para visualizar detalhes do cliente -->
                         <button class="btn btn-dark" data-toggle="modal" data-target="#clientModal{{ $client->id }}">
                             Ver mais
                         </button>
@@ -38,7 +36,6 @@
                             Criar Orçamento
                         </a>
 
-                        <!-- Modal com as informações do cliente -->
                         <div class="modal fade" id="clientModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="clientModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -59,12 +56,10 @@
                                             @foreach($client->cars as $car)
                                                 <li>
                                                     {{ $car->brand }} {{ $car->model }} - Placa: {{ $car->plate }} 
-                                                    <!-- Botão de "Ver mais" para o carro -->
                                                     <button class="btn btn-sm btn-dark" data-toggle="modal" data-target="#carModal{{ $car->id }}">
                                                         Ver mais
                                                     </button>
 
-                                                    <!-- Modal com as informações do carro -->
                                                     <div class="modal fade" id="carModal{{ $car->id }}" tabindex="-1" role="dialog" aria-labelledby="carModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -108,7 +103,6 @@
 @endsection
 
 @section('scripts')
-    <!-- Scripts para o funcionamento do Modal e Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -15,7 +15,6 @@ class MechanicController extends Controller
 
     public function store(Request $request)
     {
-        // Validação dos dados do formulário
         $validatedData = $request->validate([
             'company_name' => 'required|string|max:255',
             'cnpj' => 'required|string|max:14|unique:mechanical_workshops,cnpj',
@@ -31,7 +30,6 @@ class MechanicController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        // Hash da senha antes de salvar
         $validatedData['password'] = bcrypt($validatedData['password']);
 
         $user = new User();

@@ -7,14 +7,8 @@
         <li class="nav-item">
             <a class="nav-link text-light {{ request()->routeIs('budget.index') ? 'active' : '' }}" href="{{ route('budget.index') }}">Orçamentos</a>
         </li>
-        {{-- <li class="nav-item">
-            <a class="nav-link text-light {{ request()->routeIs('') ? 'active' : '' }}" href="{{ route('') }}">Serviço</a>
-        </li> --}}
         <li class="nav-item">
             <a class="nav-link text-light {{ request()->routeIs('client.index') ? 'active' : '' }}" href="{{ route('client.index') }}">Clientes</a>
         </li>        
-        {{-- <li class="nav-item">
-            <a class="nav-link text-light {{ request()->routeIs('history.index') ? 'active' : '' }}" href="{{ route('history.index') }}">Histórico</a>
-        </li> --}}
     </ul>
 </nav>

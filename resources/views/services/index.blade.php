@@ -53,7 +53,6 @@
 </div>
 
 <script>
-    // Exibe o campo de observações quando a opção 'Reprovar' for selecionada
     document.getElementById('status').addEventListener('change', function () {
         if (this.value === 'reprovado') {
             document.getElementById('observations-container').style.display = 'block';

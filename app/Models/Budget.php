@@ -13,10 +13,10 @@ class Budget extends Model
         'client_id',
         'services',
         'total_cost',
-        'status', // 'pendente', 'aprovado', 'rejeitado'
+        'status',
     ];
     protected $casts = [
-        'services' => 'array', // Transforma automaticamente JSON em array
+        'services' => 'array',
     ];
     
     public function client()

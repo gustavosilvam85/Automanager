@@ -14,7 +14,7 @@
     @endif
     
     <div class="d-flex justify-content-between align-items-center pt-5">
-        <h2 class="text-light py-5">Orçamentos</h2> <!-- Isso vai se alinhar à esquerda -->
+        <h2 class="text-light py-5">Orçamentos</h2>
     </div>
 
     <table class="table">

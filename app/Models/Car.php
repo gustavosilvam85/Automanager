@@ -18,7 +18,7 @@ class Car extends Model
         'color',
         'fuel_type',
         'notes',
-        'client_id', // Relacionado ao cliente
+        'client_id',
     ];
 
     public function client()

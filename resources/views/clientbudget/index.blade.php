@@ -25,7 +25,6 @@
                     <td>{{ number_format($budget->total_cost, 2, ',', '.') }}</td>
                     <td>{{ ucfirst($budget->status) }}</td>
                     <td>
-                        <!-- Formulário de Aprovação/Reprovação -->
                         <form action="{{ route('budget.update', $budget->id) }}" method="POST">
                             @csrf
                             @method('PUT')
@@ -36,7 +35,6 @@
                                     <option value="reprovado" {{ $budget->status == 'reprovado' ? 'selected' : '' }}>Reprovar</option>
                                 </select>
                             </div>
-                            <!-- Observações -->
                             <div class="form-group mt-2" id="observations-container-{{ $budget->id }}" style="display: none;">
                                 <label for="observations-{{ $budget->id }}">Observações:</label>
                                 <textarea name="observations" id="observations-{{ $budget->id }}" class="form-control" maxlength="255" placeholder="Insira o motivo da reprovação"></textarea>
@@ -52,7 +50,6 @@
 </div>
 
 <script>
-    // Gerenciar exibição do campo Observações para múltiplos formulários
     document.querySelectorAll('[id^="status-"]').forEach(select => {
         select.addEventListener('change', function () {
             const id = this.id.split('-')[1];

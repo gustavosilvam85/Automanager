@@ -20,8 +20,8 @@ class MechanicalWorkshop extends Model
         'zip_code',
         'phone1',
         'phone2',
-        'email',  // Incluído o campo 'email'
-        'password',  // Incluído o campo 'password'
+        'email', 
+        'password', 
     ];
 
     public function clients()

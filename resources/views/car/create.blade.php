@@ -1,4 +1,4 @@
-@extends('layouts.app') {{-- Altere para o layout base do seu projeto --}}
+@extends('layouts.app')
 
 @section('content')
 <div>
@@ -10,7 +10,6 @@
                     @csrf
                     <input type="hidden" name="client_id" value="{{ $client->id }}">
 
-                    {{-- Linha 1: Marca e Modelo --}}
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="brand" class="form-label text-dark">Marca</label>
@@ -22,7 +21,6 @@
                         </div>
                     </div>
 
-                    {{-- Linha 2: Ano de Fabricação e Ano do Modelo --}}
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="manufacture_year" class="form-label text-dark">Ano de Fabricação</label>
@@ -34,7 +32,6 @@
                         </div>
                     </div>
 
-                    {{-- Linha 3: Placa e Cor --}}
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="plate" class="form-label text-dark">Placa</label>
@@ -46,7 +43,6 @@
                         </div>
                     </div>
 
-                    {{-- Linha 4: Tipo de Combustível --}}
                     <div class="mb-3">
                         <label for="fuel_type" class="form-label text-dark">Tipo de Combustível</label>
                         <select name="fuel_type" id="fuel_type" class="form-select">
@@ -58,13 +54,11 @@
                         </select>
                     </div>
 
-                    {{-- Linha 5: Observações --}}
                     <div class="mb-3">
                         <label for="notes" class="form-label text-dark">Observações (opcional)</label>
                         <textarea name="notes" id="notes" rows="4" class="form-control">{{ old('notes') }}</textarea>
                     </div>
 
-                    {{-- Botão de envio --}}
                     <div class="d-grid">
                         <button type="submit" class="btn btn-dark">Cadastrar Carro</button>
                     </div>

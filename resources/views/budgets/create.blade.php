@@ -9,10 +9,8 @@
                 <form action="{{ route('budget.store') }}" method="POST">
                     @csrf
 
-                    <!-- Campo oculto para o client_id -->
                     <input type="hidden" name="client_id" value="{{ $client->id }}">
 
-                    <!-- Serviços -->
                     <div id="services-container" class="row">
                         <div class="col-md-4 service-item">
                             <div class="row">
@@ -35,7 +33,6 @@
 
                     <button type="button" id="add-service" class="btn btn-secondary my-3">Adicionar Serviço</button>
 
-                    <!-- Botão de enviar -->
                     <button type="submit" class="btn btn-dark">Criar Orçamento</button>
                 </form>
             </div>
@@ -46,7 +43,6 @@
 <script>
     let serviceIndex = 1;
 
-    // Função para adicionar um novo serviço
     document.getElementById('add-service').addEventListener('click', function () {
         const container = document.getElementById('services-container');
         const newService = document.createElement('div');
@@ -72,14 +68,12 @@
         container.appendChild(newService);
         serviceIndex++;
 
-        // Adicionando o evento de remoção para o novo serviço
         const removeButton = newService.querySelector('.remove-service');
         removeButton.addEventListener('click', function() {
             newService.remove();
         });
     });
 
-    // Evento de remoção para o primeiro serviço
     const initialRemoveButton = document.querySelector('.remove-service');
     if (initialRemoveButton) {
         initialRemoveButton.addEventListener('click', function() {

@@ -21,28 +21,24 @@ class BudgetController extends Controller
         return view('budgets.index', compact('budgets'));
     }
     public function indexClient()
-{
-    // Verifica se o usuário está autenticado
-    $user = auth()->user();
+    {
 
-    if (!$user) {
-        // Se o usuário não estiver autenticado, redireciona ou retorna um erro
-        return redirect()->route('login')->with('error', 'Você precisa estar logado para acessar esta página.');
+        $user = auth()->user();
+
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
+        $client = $user->client;
+
+        if (!$client) {
+            return redirect()->route('clientdashboard.index')->with('error', 'Cliente não encontrado.');
+        }
+
+        $budgets = Budget::where('client_id', $client->id)->get();
+
+        return view('clientbudget.index', compact('budgets'));
     }
-
-    // Verifica se o usuário tem um cliente associado
-    $client = $user->client;
-
-    if (!$client) {
-        // Se o cliente não for encontrado, redireciona ou retorna um erro
-        return redirect()->route('clientdashboard.index')->with('error', 'Cliente não encontrado.');
-    }
-
-    // Busca os orçamentos relacionados ao cliente
-    $budgets = Budget::where('client_id', $client->id)->get();
-
-    return view('clientbudget.index', compact('budgets'));
-}
 
     public function store(Request $request)
     {
@@ -72,7 +68,6 @@ class BudgetController extends Controller
     {
         $budget = Budget::findOrFail($budget_id);
 
-        // Verifica se o usuário é um cliente
         if (auth()->user()->role !== 'client') {
             return redirect()->route('budgets')->withErrors('Apenas clientes podem atualizar orçamentos.');
         }
@@ -82,21 +77,18 @@ class BudgetController extends Controller
             'observations' => 'nullable|string|max:255',
         ]);
 
-        // Atualiza o status do orçamento
         $budget->status = $request->status;
         $budget->save();
 
-        // Se o orçamento for aprovado, cria uma ordem de serviço
         if ($request->status == 'aprovado') {
             ServiceOrder::create([
                 'budget_id' => $budget->id,
                 'start_date' => now(),
-                'end_date' => now()->addDays(7), // Exemplo de prazo
+                'end_date' => now()->addDays(7),
                 'status' => 'em andamento',
             ]);
         }
 
-        // Se o orçamento for reprovado, salva as observações
         if ($request->status == 'reprovado') {
             $budget->observations = $request->observations;
             $budget->save();
@@ -107,10 +99,8 @@ class BudgetController extends Controller
 
     public function showClient($budget_id)
     {
-        // Buscar o orçamento pelo id
         $budget = Budget::findOrFail($budget_id);
 
-        // Verifica se o usuário tem permissão para visualizar o orçamento
         if (auth()->user()->role !== 'client') {
             return redirect()->route('budgets')->withErrors('Somente clientes podem visualizar o orçamento.');
         }
@@ -120,15 +110,12 @@ class BudgetController extends Controller
 
     public function showMechanic($budget_id)
     {
-        // Buscar o orçamento pelo ID
         $budget = Budget::findOrFail($budget_id);
 
-        // Verifica se o usuário tem a role 'mechanic'
         if (auth()->user()->role !== 'mechanic') {
             return redirect()->route('budgets.index')->withErrors('Somente mecânicos podem visualizar este orçamento.');
         }
 
-        // Retorna a view com os detalhes do orçamento
         return view('budgets.show', compact('budget'));
     }
 
